@@ -132,6 +132,7 @@ export const BrazilianGovernmentTimeline = () => {
 
     return {
       totalYearsNum: totalLifespan,
+      totalYears: totalLifespan.toFixed(0),
       ideologyBreakdown,
       partyBreakdown,
       ideologyChartData: ideologyBreakdown.map(i => ({ name: i.ideology, value: i.percentage })),
