@@ -168,7 +168,7 @@ export const BrazilianGovernmentTimeline = () => {
   const handleTwitterShare = (analysis) => {
     // Prepara texto mais interessante e legível
     const ideologias = analysis.ideologyBreakdown
-      .map(i => `${i.ideology}: ${i.percentage}%`)
+      .map(i => `${i.ideology}: ${i.percentage.toFixed(0)}%`)
       .join('\n');
 
     const text = `🗳️ Durante meus ${analysis.totalYears} anos de vida:
@@ -176,9 +176,9 @@ export const BrazilianGovernmentTimeline = () => {
 ${ideologias}
   
 Eu vivi ${analysis.uniquePresidents} presidentes diferentes no Brasil! 
-E ${analysis.mostTimePresident.name} foi quem governou por mais tempo (${analysis.mostTimePresident.percentage}% da minha vida)
+${analysis.mostTimePresident.name} foi quem governou por mais tempo (${analysis.mostTimePresident.percentage}%)
   
-Descubra sua história política em: ${window.location.href}`;
+${window.location.href}`;
 
     // Encode e abre URL do Twitter
     const encodedText = encodeURIComponent(text);
@@ -333,7 +333,7 @@ Descubra sua história política em: ${window.location.href}`;
               onClick={() => handleTwitterShare(politicalAnalysis)}
               className="bg-[#1DA1F2] hover:bg-[#1a8cd8] text-white font-medium px-6 py-3 rounded-lg transition-colors"
             >
-              Compartilhar no Twitter
+              Compartilhar no Twitter/X
             </button>
 
             <button
